@@ -1,0 +1,46 @@
+{
+  "train_mae": 139748.0795499639,
+  "train_r2": 0.6981095508981487,
+  "test_mae": 282419.64312770555,
+  "test_rmse": 327438.66144269373,
+  "test_r2": -0.42880304890944987,
+  "test_mape": 24.008990085395055,
+  "train_samples": 80,
+  "test_samples": 20,
+  "model_version": "v1",
+  "trained_at": "2026-03-21T19:47:27.792962",
+  "numeric_features": [
+    "bedrooms",
+    "bathrooms",
+    "living_size",
+    "lot_size",
+    "lot_ratio",
+    "total_rooms",
+    "is_sold"
+  ],
+  "categorical_features": [
+    "community",
+    "status"
+  ],
+  "model_type": "RandomForestRegressor",
+  "model_params": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "criterion": "squared_error",
+    "max_depth": 20,
+    "max_features": 1.0,
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 2,
+    "min_samples_split": 5,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  }
+}

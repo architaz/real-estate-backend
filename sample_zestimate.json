@@ -1,0 +1,117 @@
+[
+    {
+        "id": "mock_prop_000001",
+        "address": {
+            "street": "274 Teston Rd",
+            "city": "Brampton",
+            "province": "ON",
+            "postal_code": "L6V 8A6"
+        },
+        "community": "Lakeside Estates",
+        "price": {
+            "amount": 828000,
+            "currency": "CAD"
+        },
+        "details": {
+            "bedrooms": 2,
+            "bathrooms": 2.5,
+            "sqft": 3427,
+            "lot_size": 4073
+        },
+        "status": "SOLD",
+        "sold_date": "2025-04-21",
+        "description": "2BR 2.5BA home in Lakeside Estates"
+    },
+    {
+        "id": "mock_prop_000002",
+        "address": {
+            "street": "773 Oak Avenue",
+            "city": "Brampton",
+            "province": "ON",
+            "postal_code": "L6V 6A5"
+        },
+        "community": "Downtown Core",
+        "price": {
+            "amount": 1725000,
+            "currency": "CAD"
+        },
+        "details": {
+            "bedrooms": 3,
+            "bathrooms": 3.5,
+            "sqft": 2750,
+            "lot_size": 3790
+        },
+        "status": "PENDING",
+        "sold_date": null,
+        "description": "3BR 3.5BA home in Downtown Core"
+    },
+    {
+        "id": "mock_prop_000003",
+        "address": {
+            "street": "497 Spencer Ave",
+            "city": "Brampton",
+            "province": "ON",
+            "postal_code": "L6V 3A3"
+        },
+        "community": "Valley Green",
+        "price": {
+            "amount": 1110000,
+            "currency": "CAD"
+        },
+        "details": {
+            "bedrooms": 4,
+            "bathrooms": 2.0,
+            "sqft": 3403,
+            "lot_size": 3600
+        },
+        "status": "SOLD",
+        "sold_date": "2025-12-23",
+        "description": "4BR 2.0BA home in Valley Green"
+    },
+    {
+        "id": "mock_prop_000004",
+        "address": {
+            "street": "621 Tawnberry Cres",
+            "city": "Brampton",
+            "province": "ON",
+            "postal_code": "L6V 4A7"
+        },
+        "community": "Tech District",
+        "price": {
+            "amount": 1564000,
+            "currency": "CAD"
+        },
+        "details": {
+            "bedrooms": 5,
+            "bathrooms": 3.5,
+            "sqft": 1666,
+            "lot_size": 3810
+        },
+        "status": "ACTIVE",
+        "sold_date": null,
+        "description": "5BR 3.5BA home in Tech District"
+    },
+    {
+        "id": "mock_prop_000005",
+        "address": {
+            "street": "196 Rowland St",
+            "city": "Brampton",
+            "province": "ON",
+            "postal_code": "L6V 1A4"
+        },
+        "community": "Heritage Hills",
+        "price": {
+            "amount": 782000,
+            "currency": "CAD"
+        },
+        "details": {
+            "bedrooms": 2,
+            "bathrooms": 3.5,
+            "sqft": 3032,
+            "lot_size": 4497
+        },
+        "status": "ACTIVE",
+        "sold_date": null,
+        "description": "2BR 3.5BA home in Heritage Hills"
+    }
+]
