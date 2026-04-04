@@ -16,9 +16,9 @@ class Settings(BaseSettings):
     database_url: str = ""
 
     # External API
-    external_api_url: str = ""
-    external_api_key: str = ""
-    external_api_host: str = ""
+    external_api_url: str 
+    external_api_key: str 
+    external_api_host: str 
 
 
     # Background Jobs
