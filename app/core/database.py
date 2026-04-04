@@ -51,6 +51,7 @@ def init_db():
     Call this on application startup.
     """
     from app.models.property import Base
+    from app.models.amenity import Amenity 
     
     logger.info("Creating database tables...")
     Base.metadata.create_all(bind=engine)

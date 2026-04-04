@@ -10,6 +10,8 @@ from app.core.logging import setup_logging
 from app.api.routes import properties, health, predictions
 from app.jobs.sync_properties import start_scheduler, stop_scheduler
 from app.jobs.predict_prices import start_prediction_scheduler, stop_prediction_scheduler
+from app.api.routes import amenities                              
+from app.jobs.prefetch_amenities import (start_amenity_scheduler, stop_amenity_scheduler)
 import logging
 
 # Setup logging
@@ -28,6 +30,7 @@ async def lifespan(app: FastAPI):
     logger.info("Starting application...")
     init_db()  # Create database tables
     start_scheduler()  # Start background job scheduler
+    start_amenity_scheduler() 
     logger.info("Application started successfully")
     
     yield  # Application runs here
@@ -35,6 +38,7 @@ async def lifespan(app: FastAPI):
     # Shutdown
     logger.info("Shutting down application...")
     stop_scheduler()  # Stop background jobs
+    stop_amenity_scheduler()
     logger.info("Application stopped")
 
 
@@ -66,6 +70,7 @@ app.add_middleware(
 app.include_router(health.router)
 app.include_router(properties.router)
 app.include_router(predictions.router) 
+app.include_router(amenities.router)   
 
 
 @app.get("/")
