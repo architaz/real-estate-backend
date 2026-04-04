@@ -29,7 +29,7 @@ OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 AMENITY_CONFIG: Dict[str, Dict] = {
     "school": {
         "label": "Schools",
-        "icon":  "🏫",
+        "icon":  "🎓",
         "osm_filters": [
             'amenity="school"',
             'amenity="kindergarten"',
@@ -43,7 +43,6 @@ AMENITY_CONFIG: Dict[str, Dict] = {
             'amenity="hospital"',
             'amenity="clinic"',
             'amenity="doctors"',
-            'amenity="pharmacy"',
         ],
     },
     "park": {
@@ -64,9 +63,48 @@ AMENITY_CONFIG: Dict[str, Dict] = {
             'railway="subway_entrance"',
         ],
     },
+    "restaurant": {
+        "label": "Restaurants",
+        "icon":  "🍴",
+        "osm_filters": [
+            'amenity="restaurant"',
+            'amenity="fast_food"',
+        ],
+    },
+    "cafe": {
+        "label": "Cafes",
+        "icon":  "☕",
+        "osm_filters": [
+            'amenity="cafe"',
+        ],
+    },
+    "pharmacy": {
+        "label": "Pharmacies",
+        "icon":  "💊",
+        "osm_filters": [
+            'amenity="pharmacy"',
+        ],
+    },
+    "gym": {
+        "label": "Gyms",
+        "icon":  "💪",
+        "osm_filters": [
+            'leisure="fitness_centre"',
+            'leisure="gym"',
+        ],
+    },
+    "shopping": {
+        "label": "Shopping",
+        "icon":  "🛍️",
+        "osm_filters": [
+            'shop="mall"',
+            'shop="supermarket"',
+            'shop="convenience"',
+        ],
+    },
 }
 
-SEARCH_RADIUS_METRES = 1500   # Look within 1.5 km
+SEARCH_RADIUS_METRES = 2000   # Look within 1.5 km
 
 
 class AmenityExternalAPIClient:
@@ -137,14 +175,14 @@ class AmenityExternalAPIClient:
             filter_blocks.append(f'way[{osm_filter}](around:{radius},{lat},{lng});')
 
         query = f"""
-        [out:json][timeout:25];
+        [out:json][timeout:50];
         (
           {''.join(filter_blocks)}
         );
         out center tags;
         """
 
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        async with httpx.AsyncClient(timeout=60.0) as client:
             resp = await client.post(
                 OVERPASS_URL,
                 data={"data": query},
@@ -223,7 +261,7 @@ class AmenityExternalAPIClient:
 
         # Sort closest first, keep top 10 per type to avoid noise
         results.sort(key=lambda x: x["distance"])
-        return results[:10]
+        return results
 
 
 # ── Pure function: haversine distance ─────────────────────────────────────────
