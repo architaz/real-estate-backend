@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 # pool_pre_ping=True checks connections before using them (handles disconnects)
 # echo=True logs all SQL queries (useful for debugging)
 engine = create_engine(
-    settings.database_url,
+    settings.database_url.replace("mysql://", "mysql+pymysql://"),
     pool_pre_ping=True,
     echo=settings.debug,
     pool_size=5,          # Connection pool size
