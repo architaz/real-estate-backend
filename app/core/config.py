@@ -15,9 +15,6 @@ class Settings(BaseSettings):
     # Database
     database_url: str = ""
 
-    class Config:
-        extra = "allow"
-
     # External API
     external_api_url: str 
     external_api_key: str 
@@ -30,6 +27,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         case_sensitive=False,
+        extra="allow",
     )
 
 
