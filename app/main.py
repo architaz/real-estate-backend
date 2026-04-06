@@ -31,6 +31,7 @@ async def lifespan(app: FastAPI):
     init_db()  # Create database tables
     start_scheduler()  # Start background job scheduler
     start_amenity_scheduler() 
+    start_prediction_scheduler()
     logger.info("Application started successfully")
     
     yield  # Application runs here
@@ -39,6 +40,7 @@ async def lifespan(app: FastAPI):
     logger.info("Shutting down application...")
     stop_scheduler()  # Stop background jobs
     stop_amenity_scheduler()
+    stop_prediction_scheduler()
     logger.info("Application stopped")
 
 
@@ -54,13 +56,7 @@ app = FastAPI(
 # Configure CORS (allow frontend to call our API)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # React dev server
-        "http://localhost:8080",  # Vite dev server
-        "http://127.0.0.1:8070",  # Another Vite dev server
-        "http://localhost:5173",
-        "https://home-pulse-finder.lovable.app"  # Your deployed frontend
-    ],
+    allow_origins=settings.cors_origins, 
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
