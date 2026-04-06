@@ -4,6 +4,7 @@ Database connection and session management.
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from app.core.config import settings
+from typing import Generator
 import logging
 
 logger = logging.getLogger(__name__)
@@ -27,7 +28,7 @@ SessionLocal = sessionmaker(
 )
 
 
-def get_db() -> Session:
+def get_db() -> Generator[Session, None, None]:
     """
     Dependency function for FastAPI routes.
     Provides a database session and ensures it's closed after use.
